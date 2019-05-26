@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nanshen12138.github.io</id>
-    <title>ns</title>
-    <updated>2019-05-26T06:42:19.992Z</updated>
+    <title>nanshen</title>
+    <updated>2019-05-26T06:43:01.760Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nanshen12138.github.io"/>
     <link rel="self" href="https://nanshen12138.github.io/atom.xml"/>
     <subtitle>总结 记录</subtitle>
     <logo>https://nanshen12138.github.io/images/avatar.png</logo>
     <icon>https://nanshen12138.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2019, ns</rights>
+    <rights>All rights reserved 2019, nanshen</rights>
     <entry>
         <title type="html"><![CDATA[test]]></title>
         <id>https://nanshen12138.github.io/post/test</id>
