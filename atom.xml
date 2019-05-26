@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://nanshen.github.io</id>
+    <id>https://nanshen12138.github.io</id>
     <title>ns</title>
-    <updated>2019-05-26T06:16:25.353Z</updated>
+    <updated>2019-05-26T06:36:59.640Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://nanshen.github.io"/>
-    <link rel="self" href="https://nanshen.github.io/atom.xml"/>
+    <link rel="alternate" href="https://nanshen12138.github.io"/>
+    <link rel="self" href="https://nanshen12138.github.io/atom.xml"/>
     <subtitle>总结 记录</subtitle>
-    <logo>https://nanshen.github.io/images/avatar.png</logo>
-    <icon>https://nanshen.github.io/favicon.ico</icon>
+    <logo>https://nanshen12138.github.io/images/avatar.png</logo>
+    <icon>https://nanshen12138.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, ns</rights>
     <entry>
         <title type="html"><![CDATA[test]]></title>
-        <id>https://nanshen.github.io/post/test</id>
-        <link href="https://nanshen.github.io/post/test">
+        <id>https://nanshen12138.github.io/post/test</id>
+        <link href="https://nanshen12138.github.io/post/test">
         </link>
         <updated>2019-05-26T06:12:18.000Z</updated>
         <content type="html"><![CDATA[<p>12312312</p>
@@ -21,8 +21,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://nanshen.github.io/post/hello-gridea</id>
-        <link href="https://nanshen.github.io/post/hello-gridea">
+        <id>https://nanshen12138.github.io/post/hello-gridea</id>
+        <link href="https://nanshen12138.github.io/post/hello-gridea">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
