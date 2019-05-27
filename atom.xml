@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://nanshens.github.io</id>
     <title>nanshen</title>
-    <updated>2019-05-27T06:20:25.175Z</updated>
+    <updated>2019-05-27T12:52:20.683Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://nanshens.github.io"/>
     <link rel="self" href="https://nanshens.github.io/atom.xml"/>
@@ -10,4 +10,91 @@
     <logo>https://nanshens.github.io/images/avatar.png</logo>
     <icon>https://nanshens.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, nanshen</rights>
+    <entry>
+        <title type="html"><![CDATA[webflux 获取post参数]]></title>
+        <id>https://nanshens.github.io/post/webflux-huo-qu-post-can-shu</id>
+        <link href="https://nanshens.github.io/post/webflux-huo-qu-post-can-shu">
+        </link>
+        <updated>2019-05-27T12:50:36.000Z</updated>
+        <content type="html"><![CDATA[<p>form-data形式，即Content-Type: application/x-www-form-urlencoded;
+可以通过ServerWebExchange 获取</p>
+<pre><code>    $.ajax({
+            type: 'POST',
+            url: &quot;/post/findform&quot;,
+            data: {
+                name: &quot;aa&quot;,
+                sex:&quot;n&quot;
+            },
+            dataType: &quot;json&quot;,
+            success: function (data) {
+                console.log(data);
+            },error:function () {
+                console.log(&quot;error&quot;);
+            }
+        });
+        
+    // route:
+    @Configuration
+    public class PostRouter {
+    @Bean
+    public RouterFunction&lt;ServerResponse&gt; postroute(PostHandler handler) {
+                return RouterFunctions.route(RequestPredicates.POST(&quot;/post/findform&quot;)                          
+            .and(RequestPredicates.accept(MediaType.APPLICATION_FORM_URLENCODED)),handler::findform);
+        }
+    }
+
+    // handle：
+   public Mono&lt;ServerResponse&gt; findform(ServerRequest request){
+        // 获取form data,在方法中添加ServerWebExchange对象，使用方法getFormData
+        ServerWebExchange exchange = request.exchange();
+        Mono&lt;MultiValueMap&lt;String, String&gt;&gt; formData =exchange.getFormData();
+
+        return formData.flatMap(map -&gt; {
+            System.out.println(map.get(&quot;name&quot;).get(0));
+            System.out.println(map.get(&quot;sex&quot;).get(0));
+            return ServerResponse.ok().contentType(MediaType.APPLICATION_STREAM_JSON)
+                    .body(BodyInserters.fromObject(map));
+        });
+    }
+</code></pre>
+<p>application/json形式</p>
+<pre><code>    $.ajax({
+            type: 'POST',
+            url: &quot;/post/findjson&quot;,
+            data: JSON.stringify({
+                &quot;name&quot;: &quot;aa&quot;
+            }),
+            contentType:&quot;application/json&quot;,
+            dataType: &quot;json&quot;,
+            success: function (data) {
+                console.log(data);
+            },error:function () {
+                console.log(&quot;error&quot;);
+            }
+        });
+        
+   // route:   
+    @Configuration
+    public class PostRouter {
+        @Bean
+        public RouterFunction&lt;ServerResponse&gt; postroute(PostHandler handler) {
+                    return RouterFunctions.route(RequestPredicates.POST(&quot;/post/findjson&quot;)
+                    .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)),handler::find)
+                           
+        }
+    }
+
+   // handle:直接通过map映射获取
+    public Mono&lt;ServerResponse&gt; find(ServerRequest serverRequest){
+        Mono&lt;Map&gt; body = serverRequest.bodyToMono(Map.class);
+        return body.flatMap(map -&gt; {
+            String name = (String) map.get(&quot;name&quot;);
+            System.out.println(name);
+            return ServerResponse.ok().contentType(MediaType.APPLICATION_STREAM_JSON)
+                    .body(BodyInserters.fromObject(name));
+        });
+    }
+		```</code></pre>
+]]></content>
+    </entry>
 </feed>
